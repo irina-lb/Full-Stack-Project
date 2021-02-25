@@ -1,0 +1,143 @@
+//NavBar
+nav {
+  display: flex;
+  width: 100%;
+  color: $dark-gray;
+  .hamburger {
+    display: none;
+  }
+
+  .logoLink {
+    text-decoration: none;
+    color: $dark-gray;
+  }
+  .logoSection {
+    height: 12vh;
+    display: flex;
+    align-items: center;
+    padding: 0rem 0rem 0rem 4rem;
+    cursor: pointer;
+    .logo {
+      height: 60px;
+      width: 60px;
+    }
+    p {
+      font-family: $headers-font;
+    }
+  }
+
+  ul {
+    width: 100%;
+    height: 12vh;
+    padding: 0 3rem;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    justify-content: flex-end;
+    gap: 1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+    .link {
+      color: $dark-gray;
+      text-decoration: none;
+      font-size: 1.5rem;
+      &:hover {
+        border-bottom: 2px solid $light-yellow;
+        transition: all 0.2s;
+      }
+    }
+
+    .registration {
+      width: 40%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 2rem;
+    }
+
+    .signUp {
+      background: $dark-yellow;
+      color: $dark-gray;
+      padding: 0.2rem 0.5rem;
+      border-radius: 20px;
+      &:hover {
+        background-color: $light-yellow;
+        color: black;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 965px) {
+  nav {
+    position: relative;
+    width: 100%;
+
+    .hamburger {
+      display: block;
+      position: absolute;
+      position: fixed;
+      top: 3rem;
+      right: 3rem;
+      z-index: 1000;
+      cursor: pointer;
+    }
+
+    ul {
+      width: 100%;
+      height: 100vh;
+      padding-top: 2rem;
+      background-color: $light-yellow;
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      text-transform: uppercase;
+      font-weight: normal;
+      letter-spacing: 0.5rem;
+      z-index: 10;
+      clip-path: circle(10px at 90% -20%);
+      -webkit-clip-path: circle(10px at 90% -20%);
+      transition: all 1s ease-in;
+
+      .link {
+        font-size: 1.5rem;
+        color: black;
+        &:hover {
+          color: $dark-gray;
+          border-bottom: 2px solid$dark-gray;
+        }
+      }
+
+      .registration {
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        .signUp {
+          background-color: $light-gray;
+          border: 2px solid black;
+          color: black;
+          &:hover {
+            background: transparent;
+          }
+        }
+      }
+      @media screen and (max-width: 450px) {
+        .registration {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    }
+
+    .open {
+      clip-path: circle(1000px at 90% 10%);
+      -webkit-clip-path: circle(1000px at 90% 10%);
+    }
+  }
+}

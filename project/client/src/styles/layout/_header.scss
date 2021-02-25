@@ -1,0 +1,64 @@
+.header {
+  width: 100%;
+  height: 78vh;
+  margin: 0 auto;
+  padding-left: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  img {
+    width: 55%;
+    height: 100vh;
+    z-index: -2;
+    object-fit: cover;
+    overflow: hidden;
+  }
+  .header-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.3rem;
+    h1 {
+      color: $dark-gray;
+    }
+    span {
+      color: $dark-yellow;
+      font-family: $headers-font;
+      font-size: 5rem;
+    }
+    p {
+      color: white;
+    }
+    button {
+      @extend %base-button;
+    }
+  }
+  @media screen and (max-width: 685px) {
+    img {
+      display: none;
+    }
+    .header-text {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media screen and (max-width: 685px) {
+  .header {
+    padding: 0;
+    .header-text {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+      margin: 0 auto;
+    }
+  }
+}

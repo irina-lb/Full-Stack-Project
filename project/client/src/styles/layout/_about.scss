@@ -1,0 +1,107 @@
+//About section
+
+.aboutSection {
+  background-color: $light-gray;
+  position: relative;
+  svg {
+    position: absolute;
+  }
+  .teamLayout {
+    background-color: white;
+    padding: 3rem 0rem;
+  }
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    .description {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      flex-wrap: no-wrap;
+      margin-top: 5rem;
+      .descriptionText {
+        padding: 0rem 3rem 0rem 0rem;
+
+        h2 {
+          font-size: 3rem;
+          color: $light-yellow;
+          padding: 1rem 0rem;
+          font-family: $headers-font;
+        }
+      }
+      img {
+        @extend %base-img;
+        width: 40%;
+      }
+    }
+
+    @media screen and (max-width: 800px) {
+      .description {
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        .descriptionText {
+          padding: 2rem;
+        }
+        img {
+          width: 60%;
+        }
+      }
+    }
+  }
+}
+
+//Cards section
+
+.infoSection {
+  background-color: $light-yellow;
+  width: 100%;
+  padding: 9rem 0rem 3rem 0rem;
+  h2 {
+    text-align: center;
+    font-family: $headers-font;
+    font-size: 3rem;
+    color: $dark-gray;
+    padding-top: 2rem;
+  }
+  .cardsSection {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5rem;
+    padding: 0rem 3rem 0rem 3rem;
+
+    .cardDescription {
+      width: 20%;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+      h4 {
+        color: $dark-gray;
+        font-weight: bold;
+      }
+    }
+  }
+
+  img {
+    height: 80px;
+    width: 80px;
+  }
+  @media screen and (max-width: 725px) {
+    .cardsSection {
+      display: flex;
+      flex-wrap: wrap;
+      .cardDescription {
+        width: 50%;
+        padding: 1rem;
+      }
+    }
+  }
+}

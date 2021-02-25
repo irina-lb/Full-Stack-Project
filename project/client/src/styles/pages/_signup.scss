@@ -1,0 +1,103 @@
+.signUpForm {
+  height: 85vh;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rem 5rem;
+
+  img {
+    width: 45%;
+    z-index: -2;
+    overflow: hidden;
+  }
+  .itemsContainer {
+    width: 40%;
+    margin: 0 auto;
+    padding: 0rem 1rem;
+    height: 100%;
+    color: $dark-gray;
+    flex-grow: 1;
+    .formText {
+      text-align: center;
+      padding: 2rem 0rem 1rem 0rem;
+      h2 {
+        color: $dark-yellow;
+        font-family: $headers-font;
+        font-size: 3rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+      span {
+        color: $dark-yellow;
+        font-family: $headers-font;
+        font-size: 1.5rem;
+      }
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      .formItem {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        label {
+          width: 30%;
+          font-size: 1rem;
+        }
+        input {
+          flex-grow: 1;
+        }
+      }
+    }
+    button {
+      @extend %base-button;
+    }
+    p {
+      text-align: center;
+      padding-top: 0.8rem;
+      font-size: 0.8rem;
+      a {
+        @extend %base-link;
+      }
+    }
+  }
+  @media screen and (max-width: 895px) {
+    img {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 565px) {
+    .itemsContainer {
+      width: 100%;
+      .formText {
+        padding: 1rem 0rem;
+        h2 {
+          font-size: 2rem;
+        }
+        p {
+          font-size: 0.8rem;
+        }
+      }
+      .formItem {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        padding: 0;
+        label {
+          text-align: left;
+        }
+        input {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

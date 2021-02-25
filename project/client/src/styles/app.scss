@@ -1,0 +1,24 @@
+//scss components and variables
+@import "./components";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $base-font;
+}
+
+//HomePage
+@import "./layout/about";
+@import "./layout/header";
+@import "./layout/navBar";
+
+//SignUp
+@import "./pages/signup";
+@import "./layout/auth";
+
+//LogIn
+@import "./pages/login";

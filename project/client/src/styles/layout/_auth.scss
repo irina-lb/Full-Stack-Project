@@ -1,0 +1,15 @@
+.error {
+  @extend %alert-msg;
+  background-color: rgba(241, 104, 104, 0.5);
+}
+.success {
+  @extend %alert-msg;
+  background-color: rgba(133, 199, 133, 0.5);
+  a {
+    @extend %base-link;
+    color: $dark-gray;
+    &:hover {
+      border-bottom: 2px solid $dark-gray;
+    }
+  }
+}
