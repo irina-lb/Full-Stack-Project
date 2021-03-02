@@ -1,8 +1,10 @@
 //import states
 import { useState } from "react";
+//routes import
+import { Redirect } from "react-router-dom";
 //import functions
-import { login, authenticate } from "../controllers/auth";
-import { showLoading, showError, redirectUser } from "../controllers/alerts";
+import { login, authenticate, isAuthenticated } from "../controllers/auth";
+import { showLoading, showError } from "../controllers/alerts";
 //img import
 import welcome from "../styles/img/welcome.jpg";
 
@@ -16,7 +18,8 @@ function LogIn() {
     redirect: false,
   });
 
-  const { email, password } = values;
+  //take user from jwt
+  const { user } = isAuthenticated();
 
   const handleChange = (name) => (event) => {
     setValues({ ...values, error: false, [name]: event.target.value });
@@ -40,6 +43,20 @@ function LogIn() {
     });
   };
 
+  // redirect user, depends of his role
+  const redirectUser = () => {
+    if (values.redirect) {
+      if (user && user.role === 1) {
+        return <Redirect to="/admin/dashboard" />;
+      } else {
+        return <Redirect to="/user/dashboard" />;
+      }
+    }
+    if (isAuthenticated()) {
+      return <Redirect to="/" />;
+    }
+  };
+
   return (
     <div className="loginForm">
       <div className="formText">
@@ -50,7 +67,6 @@ function LogIn() {
         </p>
         {showLoading(values.loading)}
         {showError(values.error)}
-        {redirectUser(values.redirect)}
       </div>
 
       <form>
@@ -61,7 +77,7 @@ function LogIn() {
             type="email"
             placeholder="Your email..."
             id="checkEmail"
-            value={email}
+            value={values.email}
           />
         </div>
 
@@ -72,11 +88,12 @@ function LogIn() {
             type="password"
             placeholder="Your password..."
             id="checkPassword"
-            value={password}
+            value={values.password}
           />
         </div>
         <button onClick={submitForm}>Submit</button>
       </form>
+      {redirectUser()}
       <img src={welcome} alt="Ups.." />
     </div>
   );

@@ -23,9 +23,7 @@
       text-align: center;
       padding: 2rem 0rem 1rem 0rem;
       h2 {
-        color: $dark-yellow;
-        font-family: $headers-font;
-        font-size: 3rem;
+        @extend %base-header;
       }
       p {
         font-size: 1rem;

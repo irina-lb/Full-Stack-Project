@@ -1,14 +1,14 @@
 //routes import
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-//error alert
+//login and signup error
 export const showError = (error) => (
   <div className="error" style={{ display: error ? "" : "none" }}>
     {error}
   </div>
 );
 
-//success alert
+// login and signup success
 export const showSuccess = (success) => (
   <div className="success" style={{ display: success ? "" : "none" }}>
     New account was created. Please <Link to="/login">Log In</Link>
@@ -19,16 +19,23 @@ export const showSuccess = (success) => (
 export const showLoading = (loading) => {
   if (loading) {
     return (
-      <div className="alert alert-info">
+      <div className="loading">
         <h2>Loading...</h2>
       </div>
     );
   }
 };
-// redirect to home page after login
 
-export const redirectUser = (redirect) => {
-  if (redirect) {
-    return <Redirect to="/" />;
+//category create success
+export const categorySuccess = (success) => {
+  if (success) {
+    return <div className="success">The category is created</div>;
+  }
+};
+
+//category create error
+export const categoryError = (error) => {
+  if (error) {
+    return <div className="error">Category should be unique</div>;
   }
 };

@@ -1,5 +1,5 @@
 //scss components and variables
-@import "./components";
+@import "./base";
 
 * {
   margin: 0;
@@ -12,13 +12,23 @@ body {
 }
 
 //HomePage
-@import "./layout/about";
-@import "./layout/header";
-@import "./layout/navBar";
+@import "./components/about";
+@import "./components/header";
+@import "./components/navBar";
+@import "./components/footer";
 
 //SignUp
 @import "./pages/signup";
-@import "./layout/auth";
+@import "./components/auth";
 
 //LogIn
 @import "./pages/login";
+
+//User Dashboard
+@import "./pages/userDashboard";
+@import "./components/userInfo";
+
+//AdminDashboard
+@import "./pages/adminDashboard";
+@import "./components/createCategory";
+@import "./components/createProduct";

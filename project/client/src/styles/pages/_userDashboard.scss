@@ -1,0 +1,38 @@
+.userDashboard {
+  max-width: 1200px;
+  margin: 4rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: $dark-gray;
+  .user {
+    width: 100%;
+    span {
+      @extend %base-header;
+      font-size: 2rem;
+    }
+  }
+  .userLinks {
+    width: 100%;
+    ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      border-bottom: 2px solid $dark-yellow;
+      li {
+        font-size: 1rem;
+        font-weight: bold;
+        padding: 0.5rem;
+        cursor: pointer;
+        a {
+          text-decoration: none;
+          color: $dark-gray;
+          &:hover {
+            color: $dark-yellow;
+          }
+        }
+      }
+    }
+  }
+}

@@ -4,7 +4,7 @@ import { faTimes, faBars } from "@fortawesome/free-solid-svg-icons";
 //icons import
 import logo from "../styles/icons/cooking.png";
 //router import
-import { Link, withRouter } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 //states import
 import { useState } from "react";
 //function import
@@ -19,9 +19,29 @@ function NavBar({ history }) {
     setIsOpen(!isOpen);
   };
 
+  //take user from jwt
+  const { user } = isAuthenticated();
   //show active page
-  const isActive = (history, path) => {
-    if (history.location.pathname === path) {
+  const location = history.location.pathname;
+
+  const isActive = (path) => {
+    if (location === path) {
+      return {
+        color: "white",
+        background: "#f5df4d",
+        padding: " .2rem .5rem",
+        borderRadius: "20px",
+      };
+    } else {
+      return { color: "#464747" };
+    }
+  };
+  const subLink = () => {
+    if (
+      location === "/user/dashboard/cart" ||
+      location === "/user/dashboard/info" ||
+      location === "/user/dashboard"
+    ) {
       return {
         color: "white",
         background: "#f5df4d",
@@ -35,12 +55,12 @@ function NavBar({ history }) {
 
   return (
     <nav>
-      <Link className="logoLink link" to="/">
+      <NavLink className="logoLink link" to="/">
         <div className="logoSection">
           <img src={logo} className="logo" />
           <p>HomeChef</p>
         </div>
-      </Link>
+      </NavLink>
       <FontAwesomeIcon
         onClick={toggleMenu}
         icon={isOpen ? faTimes : faBars}
@@ -49,59 +69,75 @@ function NavBar({ history }) {
       />
       <ul className={isOpen ? "open" : null}>
         <li onClick={toggleMenu}>
-          <Link className="link" to="/" style={isActive(history, "/")}>
+          <NavLink className="link" to="/" style={isActive("/")}>
             About
-          </Link>
+          </NavLink>
         </li>
         <li onClick={toggleMenu}>
-          <Link className="link" to="/menu" style={isActive(history, "/menu")}>
+          <NavLink className="link" to="/menu" style={isActive("/menu")}>
             Menu
-          </Link>
+          </NavLink>
         </li>
         <li onClick={toggleMenu}>
-          <Link className="link" to="/faq" style={isActive(history, "/faq")}>
+          <NavLink className="link" to="/faq" style={isActive("/faq")}>
             FAQ
-          </Link>
+          </NavLink>
         </li>
         <li onClick={toggleMenu}>
-          <Link
+          <NavLink
             className="link"
             to="/contacts"
-            style={isActive(history, "/contacts")}
+            style={isActive("/contacts")}
           >
             Contacts
-          </Link>
+          </NavLink>
         </li>
         <li className="registration" onClick={toggleMenu}>
-          {!isAuthenticated() && (
+          {!user && (
             <>
-              <Link
-                className="link"
-                to="/login"
-                style={isActive(history, "/login")}
-              >
+              <NavLink className="link" to="/login" style={isActive("/login")}>
                 Log In
-              </Link>
-              <Link
+              </NavLink>
+              <NavLink
                 className="link signUp"
                 to="/signup"
-                style={isActive(history, "/signup")}
+                style={isActive("/signup")}
               >
                 Sign Up
-              </Link>
+              </NavLink>
             </>
           )}
-          {isAuthenticated() && (
-            <a
-              className="link"
-              onClick={() =>
-                signout(() => {
-                  history.push("/");
-                })
-              }
-            >
-              Sign Out
-            </a>
+          {user && user.role === 0 && (
+            <>
+              <NavLink
+                className="link"
+                to="/user/dashboard"
+                style={subLink(history)}
+              >
+                Profile
+              </NavLink>
+            </>
+          )}
+          {user && user.role === 1 && (
+            <>
+              <NavLink className="link" to="/admin" style={isActive("/admin")}>
+                Profile
+              </NavLink>
+            </>
+          )}
+          {user && (
+            <>
+              <a
+                className="link"
+                onClick={() =>
+                  signout(() => {
+                    history.push("/");
+                  })
+                }
+              >
+                Sign Out
+              </a>
+            </>
           )}
         </li>
       </ul>

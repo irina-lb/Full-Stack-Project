@@ -33,9 +33,6 @@ const userSchema = new mongoose.Schema(
     phoneNumber: {
       type: Number,
     },
-    profileImage: {
-      type: String,
-    },
     birthDate: {
       type: Date,
     },

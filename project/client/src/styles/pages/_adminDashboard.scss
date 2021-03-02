@@ -1,0 +1,32 @@
+.adminDashboard {
+  color: $dark-gray;
+  max-width: 1200px;
+  margin: 0 auto;
+  h3 {
+    @extend %base-header;
+    text-align: center;
+  }
+  a {
+    @extend %base-link;
+    color: $dark-gray;
+  }
+  .adminInfo {
+    margin: 2rem 0 0 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: absolute;
+    width: 20%;
+    ul {
+      list-style: none;
+      h4 {
+        font-size: 1.2rem;
+        margin: 1rem 0;
+        color: $dark-yellow;
+      }
+      li {
+        padding: 0.2rem 1rem;
+      }
+    }
+  }
+}

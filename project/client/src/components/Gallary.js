@@ -1,5 +1,5 @@
-function Gallary() {
+function Gallery() {
   return <div></div>;
 }
 
-export default Gallary;
+export default Gallery;

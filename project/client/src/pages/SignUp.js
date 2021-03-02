@@ -19,8 +19,6 @@ function SignUp() {
     success: false,
   });
 
-  const { firstName, lastName, email, password } = values;
-
   const handleChange = (name) => (event) => {
     setValues({ ...values, error: false, [name]: event.target.value });
   };
@@ -65,7 +63,7 @@ function SignUp() {
               <label htmlFor="nameInput">Name(s):</label>
               <input
                 onChange={handleChange("firstName")}
-                value={firstName}
+                value={values.firstName}
                 type="text"
                 placeholder="Your name..."
                 id="nameInput"
@@ -76,7 +74,7 @@ function SignUp() {
               <label htmlFor="lastNameInput">Surname(s):</label>
               <input
                 onChange={handleChange("lastName")}
-                value={lastName}
+                value={values.lastName}
                 type="text"
                 placeholder="Your last name..."
                 id="lastNameInput"
@@ -87,7 +85,7 @@ function SignUp() {
               <label htmlFor="emailInput">Email:</label>
               <input
                 onChange={handleChange("email")}
-                value={email}
+                value={values.email}
                 type="email"
                 placeholder="Your email..."
                 id="emailInput"
@@ -98,7 +96,7 @@ function SignUp() {
               <label htmlFor="passwordInput">Password:</label>
               <input
                 onChange={handleChange("password")}
-                value={password}
+                value={values.password}
                 type="password"
                 placeholder="Your password..."
                 id="passwordInput"

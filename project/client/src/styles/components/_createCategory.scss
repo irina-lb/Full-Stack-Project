@@ -1,0 +1,35 @@
+.createCategory {
+  @extend %admin-links;
+  .success,
+  .error {
+    width: 60%;
+  }
+  h3 {
+    font-size: 1.3rem;
+    padding: 0.5rem;
+  }
+  form {
+    width: 80%;
+    margin: 0.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+
+    .categoryInput {
+      width: 90%;
+      display: flex;
+      gap: 1rem;
+      label {
+        font-size: 1.1rem;
+      }
+      input {
+        flex-grow: 1;
+      }
+    }
+    button {
+      @extend %base-button;
+      padding: 0.5rem 3rem;
+    }
+  }
+}

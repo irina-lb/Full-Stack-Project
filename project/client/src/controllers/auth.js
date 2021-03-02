@@ -50,9 +50,7 @@ export const signout = (next) => {
   if (typeof window !== "undefined") {
     localStorage.removeItem("jwt");
     next();
-    return fetch(`${API}/signout`, {
-      method: "GET",
-    })
+    return fetch(`${API}/signout`)
       .then((response) => {
         console.log("signout", response);
       })

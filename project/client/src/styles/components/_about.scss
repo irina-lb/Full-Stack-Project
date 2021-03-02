@@ -25,10 +25,9 @@
         padding: 0rem 3rem 0rem 0rem;
 
         h2 {
-          font-size: 3rem;
+          @extend %base-header;
           color: $light-yellow;
           padding: 1rem 0rem;
-          font-family: $headers-font;
         }
       }
       img {
@@ -60,9 +59,8 @@
   width: 100%;
   padding: 9rem 0rem 3rem 0rem;
   h2 {
+    @extend %base-header;
     text-align: center;
-    font-family: $headers-font;
-    font-size: 3rem;
     color: $dark-gray;
     padding-top: 2rem;
   }
