@@ -1,4 +1,6 @@
 .adminDashboard {
+  display: flex;
+  flex-direction: column;
   color: $dark-gray;
   max-width: 1200px;
   margin: 0 auto;
@@ -10,23 +12,34 @@
     @extend %base-link;
     color: $dark-gray;
   }
-  .adminInfo {
-    margin: 2rem 0 0 2rem;
+  .routesContainer {
+    margin: 1.5rem;
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    position: absolute;
-    width: 20%;
-    ul {
-      list-style: none;
-      h4 {
-        font-size: 1.2rem;
-        margin: 1rem 0;
-        color: $dark-yellow;
+    justify-content: space-between;
+    height: 100%;
+    .adminSideBar {
+      width: 30%;
+      .adminInfo {
+        margin: 2rem 0 0 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        ul {
+          list-style: none;
+          h4 {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            color: $dark-yellow;
+          }
+          li {
+            padding: 0.2rem 1rem;
+          }
+        }
       }
-      li {
-        padding: 0.2rem 1rem;
-      }
+    }
+    .adminRoutes {
+      width: 70%;
     }
   }
 }

@@ -10,23 +10,16 @@ const Product = require("../models/product");
 exports.createProduct = (req, res) => {
   let form = new formidable.IncomingForm();
   form.keepExtensions = true;
-  form.parse(req, (err, fields, files) => {
-    if (err) {
+  form.parse(req, (error, fields, files) => {
+    if (error) {
       return res.status(400).json({
         error: "Image could not be uploaded",
       });
     }
 
-    const { name, description, price, category, quantity, shipping } = fields;
+    const { name, description, price, category, quantity } = fields;
 
-    if (
-      !name ||
-      !description ||
-      !price ||
-      !category ||
-      !quantity ||
-      !shipping
-    ) {
+    if (!name || !description || !price || !category || !quantity) {
       return res.status(400).json({
         error: "All fields are required",
       });
@@ -111,6 +104,11 @@ exports.updateProduct = (req, res) => {
   });
 };
 
+/**
+ * by sell = /products?sortBy=sold&order=desc&limit=4
+ * by arrival = /products?sortBy=createdAt&order=desc&limit=4
+ */
+
 //show list of products
 exports.listProducts = (req, res) => {
   let order = req.query.order ? req.query.order : "asc";
@@ -162,7 +160,7 @@ exports.categoryProducts = (req, res) => {
 
 //show products by search
 exports.productsBySearch = (req, res) => {
-  let order = req.body.order ? req.body.order : "desc";
+  let order = req.body.order ? req.body.order : "asc";
   let sortBy = req.body.sortBy ? req.body.sortBy : "_id";
   let limit = req.body.limit ? parseInt(req.body.limit) : 100;
   let skip = parseInt(req.body.skip);

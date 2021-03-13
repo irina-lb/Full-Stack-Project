@@ -46,6 +46,7 @@ db.once("open", () => {
   console.log("Connection successful");
 });
 
+//listening on port
 app.listen(PORT, () => {
   console.log(`Server is running in port: ${PORT}`);
 });

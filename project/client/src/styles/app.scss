@@ -16,6 +16,7 @@ body {
 @import "./components/header";
 @import "./components/navBar";
 @import "./components/footer";
+@import "./components/popular";
 
 //SignUp
 @import "./pages/signup";
@@ -32,3 +33,7 @@ body {
 @import "./pages/adminDashboard";
 @import "./components/createCategory";
 @import "./components/createProduct";
+
+//Menu
+@import "./pages/menu";
+@import "./components/allProducts";

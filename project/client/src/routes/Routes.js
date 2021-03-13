@@ -14,8 +14,6 @@ import AdminDashboard from "../pages/AdminDashboard";
 //components import
 import UserInfo from "../components/UserInfo";
 import ShoppingCart from "../components/ShoppingCart";
-import CreateCategory from "../components/admin/CreateCategory";
-import CreateProduct from "../components/admin/CreateProduct";
 
 function Routes() {
   return (
@@ -32,9 +30,6 @@ function Routes() {
       <Route path="/user/dashboard/info" component={UserInfo} />
       <Route path="/user/dashboard/cart" component={ShoppingCart} />
       <AdminPrivateLink path="/admin" component={AdminDashboard} />
-      <Route path="/admin/info" component={UserInfo} />
-      <Route path="/admin/create_category" component={CreateCategory} />
-      <Route path="/admin/create_product" component={CreateProduct} />
     </div>
   );
 }

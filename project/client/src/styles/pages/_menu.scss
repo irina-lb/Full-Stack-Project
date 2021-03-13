@@ -1,0 +1,33 @@
+.menu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: $dark-gray;
+  .newRecipes {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $light-gray;
+
+    h4 {
+      @extend %base-header;
+    }
+    .products {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      .productCard {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+        img {
+          @extend %base-img;
+          width: 100%;
+          height: 150px;
+        }
+      }
+    }
+  }
+}

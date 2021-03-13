@@ -32,7 +32,7 @@ function CreateCategory() {
 
   return (
     <div className="createCategory">
-      <h3>Create category</h3>
+      <h4>Create category</h4>
       {categorySuccess(category.success)}
       {categoryError(category.error)}
       <form onSubmit={submitForm}>

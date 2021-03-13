@@ -27,3 +27,33 @@ export const cards = [
     text: "Experience the magic of cooking and enjoy the great food.",
   },
 ];
+
+//prices for the filter
+
+export const prices = [
+  {
+    id: 0,
+    name: "All",
+    limit: [],
+  },
+  {
+    id: 1,
+    name: "0€ - 10€",
+    limit: [0, 10],
+  },
+  {
+    id: 2,
+    name: "11€ - 20€",
+    limit: [11, 20],
+  },
+  {
+    id: 3,
+    name: "21€ - 30€",
+    limit: [21, 30],
+  },
+  {
+    id: 4,
+    name: "More then 30€",
+    limit: [30, 50],
+  },
+];

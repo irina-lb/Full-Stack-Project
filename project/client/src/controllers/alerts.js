@@ -39,3 +39,9 @@ export const categoryError = (error) => {
     return <div className="error">Category should be unique</div>;
   }
 };
+
+export const productSuccess = (success) => {
+  if (success) {
+    return <div className="success">The product is created</div>;
+  }
+};

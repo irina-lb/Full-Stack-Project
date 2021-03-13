@@ -1,6 +1,5 @@
 //schema import
 const Category = require("../models/category");
-const Product = require("../models/category");
 
 //create new category
 exports.createCategory = (req, res) => {
