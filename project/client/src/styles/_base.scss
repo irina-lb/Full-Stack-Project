@@ -28,6 +28,13 @@ $headers-font: "Dancing Script", cursive;
     color: black;
   }
 }
+%product-button {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
 
 //img
 %base-img {

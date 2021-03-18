@@ -1,7 +1,12 @@
 //routes import
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
+//import function
+import { signout } from "../../controllers/auth";
 
 function AdminSideBar() {
+  //history
+  const history = useHistory();
+
   //show active page
   const location = useLocation().pathname;
   const isActive = (path) => {
@@ -37,7 +42,17 @@ function AdminSideBar() {
               Change category
             </Link>
           </li>
-          <li>Sign Out</li>
+          <li>
+            <a
+              onClick={() =>
+                signout(() => {
+                  history.push("/");
+                })
+              }
+            >
+              Sign Out
+            </a>
+          </li>
         </ul>
         <ul>
           <h4>Products:</h4>

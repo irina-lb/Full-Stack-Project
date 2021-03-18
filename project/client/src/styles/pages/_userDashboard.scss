@@ -5,34 +5,31 @@
   flex-direction: column;
   gap: 1rem;
   color: $dark-gray;
-  .user {
+  .userInfo {
     width: 100%;
+    margin: 0rem 3rem;
     span {
       @extend %base-header;
       font-size: 2rem;
+      padding-left: 0.5rem;
     }
   }
-  .userLinks {
-    width: 100%;
-    ul {
-      list-style: none;
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      border-bottom: 2px solid $dark-yellow;
-      li {
-        font-size: 1rem;
-        font-weight: bold;
-        padding: 0.5rem;
-        cursor: pointer;
-        a {
-          text-decoration: none;
-          color: $dark-gray;
-          &:hover {
-            color: $dark-yellow;
-          }
+  .userMainSection {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    .userSideBar {
+      width: 20%;
+      a {
+        color: $dark-gray;
+        &:hover {
+          border-bottom: 2px solid $dark-yellow;
         }
       }
+    }
+    .userRoutes {
+      width: 80%;
+      flex-grow: 1;
     }
   }
 }

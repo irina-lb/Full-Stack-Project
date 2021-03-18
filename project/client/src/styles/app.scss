@@ -9,6 +9,11 @@
 
 body {
   font-family: $base-font;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
 }
 
 //HomePage
@@ -37,3 +42,8 @@ body {
 //Menu
 @import "./pages/menu";
 @import "./components/allProducts";
+@import "./components/productPage";
+
+//Shopping Cart
+@import "./pages/shoppingCart";
+@import "./components/cartItem";

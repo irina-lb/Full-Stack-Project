@@ -12,8 +12,8 @@ import SignUp from "../pages/SignUp";
 import UserDashboard from "../pages/UserDashboard";
 import AdminDashboard from "../pages/AdminDashboard";
 //components import
-import UserInfo from "../components/UserInfo";
-import ShoppingCart from "../components/ShoppingCart";
+import ProductPage from "../components/Menu/ProductPage";
+import ShoppingCart from "../pages/ShoppingCart";
 
 function Routes() {
   return (
@@ -25,10 +25,10 @@ function Routes() {
         <Route path="/contacts" component={Contacts} />
         <Route path="/login" component={LogIn} />
         <Route path="/signup" component={SignUp} />
+        <Route path="/product/:productId" exact component={ProductPage} />
+        <Route path="/user/shoppingCart" exact component={ShoppingCart} />
       </Switch>
       <UserPrivateLink path="/user/dashboard" component={UserDashboard} />
-      <Route path="/user/dashboard/info" component={UserInfo} />
-      <Route path="/user/dashboard/cart" component={ShoppingCart} />
       <AdminPrivateLink path="/admin" component={AdminDashboard} />
     </div>
   );

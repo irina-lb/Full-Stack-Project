@@ -3,8 +3,43 @@
   display: flex;
   flex-direction: column;
   color: $dark-gray;
+  position: relative;
+  .svg {
+    position: absolute;
+    z-index: -100;
+  }
+  .principalSection {
+    .titleMenu {
+      font-size: 1.8rem;
+      text-align: center;
+      span {
+        font-family: $headers-font;
+        color: $dark-yellow;
+        font-size: 2.2rem;
+      }
+    }
+
+    .loadMore {
+      @extend %product-button;
+      float: right;
+      margin: 3rem;
+      background-color: $dark-yellow;
+      border: none;
+      &:hover {
+        border: 2px solid $dark-yellow;
+        background-color: transparent;
+      }
+    }
+    .textMenu {
+      width: 100%;
+      max-width: 700px;
+      text-align: center;
+      margin: 0 auto;
+      padding: 2rem 0 3rem 0;
+    }
+  }
   .newRecipes {
-    margin: 2rem 0;
+    margin-top: 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,21 +47,25 @@
 
     h4 {
       @extend %base-header;
+      color: $light-yellow;
+      padding-top: 0.5rem;
     }
-    .products {
+    .newArrival {
       width: 100%;
-      display: flex;
-      justify-content: space-around;
-      .productCard {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 0.5rem;
-        img {
-          @extend %base-img;
-          width: 100%;
-          height: 150px;
-        }
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-column-gap: 3rem;
+      grid-row-gap: 5rem;
+      margin: 0 auto;
+      padding: 2rem;
+
+      img {
+        @extend %base-img;
+        width: 80%;
+        object-fit: cover;
+        height: 200px;
+        margin-left: 1.5rem;
+        cursor: pointer;
       }
     }
   }

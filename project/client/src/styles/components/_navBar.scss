@@ -54,6 +54,18 @@ nav {
       align-items: center;
       justify-content: flex-end;
       gap: 2rem;
+      img {
+        width: 60px;
+        height: 60px;
+      }
+      sup {
+        font-size: small;
+        font-weight: bold;
+        color: brown;
+        &:hover {
+          border-bottom: 2px solid $dark-gray;
+        }
+      }
     }
 
     .signUp {

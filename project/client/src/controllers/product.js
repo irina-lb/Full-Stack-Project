@@ -53,3 +53,24 @@ export const showFilteredProducts = (skip, limit, filters = {}) => {
       console.log(err);
     });
 };
+//show product by Id
+export const checkId = (productId) => {
+  return fetch(`${API}/product/${productId}`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((error) => console.log(error));
+};
+
+//related products
+export const showRelatedProducts = (productId) => {
+  return fetch(`${API}/product/related/${productId}`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((error) => console.log(error));
+};

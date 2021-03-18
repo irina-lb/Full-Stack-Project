@@ -1,7 +1,7 @@
 //import states
 import { useState } from "react";
 //routes import
-import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 //import functions
 import { login, authenticate, isAuthenticated } from "../controllers/auth";
 import { showLoading, showError } from "../controllers/alerts";
@@ -44,16 +44,18 @@ function LogIn() {
   };
 
   // redirect user, depends of his role
+  const history = useHistory();
+
   const redirectUser = () => {
     if (values.redirect) {
       if (user && user.role === 1) {
-        return <Redirect to="/admin/dashboard" />;
+        history.push("/admin/dashboard");
       } else {
-        return <Redirect to="/user/dashboard" />;
+        history.push("/user/dashboard");
       }
     }
     if (isAuthenticated()) {
-      return <Redirect to="/" />;
+      history.push("/");
     }
   };
 

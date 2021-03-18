@@ -1,27 +1,16 @@
 //functions import
 import { isAuthenticated } from "../controllers/auth";
 //router import
-import { Link } from "react-router-dom";
+import UserRoutes from "../routes/UserRoutes";
+//import components
+import UserSidebar from "../components/user/UserSideBar";
 
 function UserDashboard({ history }) {
-  //show active page
-  const location = history.location.pathname;
-
-  const isActive = (path) => {
-    if (location === path) {
-      return {
-        color: "#ffc30b",
-      };
-    } else {
-      return { color: "#464747" };
-    }
-  };
-
   //take user from jwt
   const { user } = isAuthenticated();
   return (
     <div className="userDashboard">
-      <div className="user">
+      <div className="userInfo">
         <h2>
           Hello
           <span>
@@ -34,26 +23,9 @@ function UserDashboard({ history }) {
           in?
         </p>
       </div>
-      <div className="userLinks">
-        <ul>
-          <li>
-            <Link
-              to="/user/dashboard/info"
-              style={isActive("/user/dashboard/info")}
-            >
-              Personal information
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/user/dashboard/cart"
-              style={isActive("/user/dashboard/cart")}
-            >
-              Shopping cart
-            </Link>
-          </li>
-          <li>Sign Out</li>
-        </ul>
+      <div className="userMainSection">
+        <UserSidebar />
+        <UserRoutes />
       </div>
     </div>
   );

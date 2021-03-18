@@ -3,14 +3,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faBars } from "@fortawesome/free-solid-svg-icons";
 //icons import
 import logo from "../styles/icons/cooking.png";
+import cart from "../styles/icons/cart.png";
+import users from "../styles/icons/user.png";
 //router import
-import { NavLink, withRouter } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 //states import
 import { useState } from "react";
 //function import
-import { signout, isAuthenticated } from "../controllers/auth";
+import { isAuthenticated } from "../controllers/auth";
+import { productsTotal } from "../controllers/cart";
 
-function NavBar({ history }) {
+function NavBar() {
   //states
   const [isOpen, setIsOpen] = useState(false);
 
@@ -21,27 +24,12 @@ function NavBar({ history }) {
 
   //take user from jwt
   const { user } = isAuthenticated();
-  //show active page
-  const location = history.location.pathname;
+
+  //active page
+  const location = useLocation().pathname;
 
   const isActive = (path) => {
     if (location === path) {
-      return {
-        color: "white",
-        background: "#f5df4d",
-        padding: " .2rem .5rem",
-        borderRadius: "20px",
-      };
-    } else {
-      return { color: "#464747" };
-    }
-  };
-  const subLink = () => {
-    if (
-      location === "/user/dashboard/cart" ||
-      location === "/user/dashboard/info" ||
-      location === "/user/dashboard"
-    ) {
       return {
         color: "white",
         background: "#f5df4d",
@@ -109,12 +97,12 @@ function NavBar({ history }) {
           )}
           {user && user.role === 0 && (
             <>
-              <NavLink
-                className="link"
-                to="/user/dashboard"
-                style={subLink(history)}
-              >
-                Profile
+              <NavLink to="/user/dashboard">
+                <img className="icon" src={users} alt="Ups..." />
+              </NavLink>
+              <NavLink to="/user/shoppingCart">
+                <img className="icon" src={cart} alt="Ups..." />
+                <sup>{productsTotal()} </sup>
               </NavLink>
             </>
           )}
@@ -125,24 +113,10 @@ function NavBar({ history }) {
               </NavLink>
             </>
           )}
-          {user && (
-            <>
-              <a
-                className="link"
-                onClick={() =>
-                  signout(() => {
-                    history.push("/");
-                  })
-                }
-              >
-                Sign Out
-              </a>
-            </>
-          )}
         </li>
       </ul>
     </nav>
   );
 }
 
-export default withRouter(NavBar);
+export default NavBar;

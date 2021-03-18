@@ -105,8 +105,8 @@ exports.updateProduct = (req, res) => {
 };
 
 /**
- * by sell = /products?sortBy=sold&order=desc&limit=4
- * by arrival = /products?sortBy=createdAt&order=desc&limit=4
+ * by sell = /products?sortBy=sold&order=desc&limit=6
+ * by arrival = /products?sortBy=createdAt&order=desc&limit=6
  */
 
 //show list of products
@@ -132,7 +132,7 @@ exports.listProducts = (req, res) => {
 
 //show products related by category
 exports.relatedProduct = (req, res) => {
-  let limit = req.query.limit ? parseInt(req.query.limit) : 6;
+  let limit = req.query.limit ? parseInt(req.query.limit) : 3;
   Product.find({ _id: { $ne: req.product }, category: req.product.category })
     .limit(limit)
     .populate("category", "_id name")

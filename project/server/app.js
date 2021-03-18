@@ -15,7 +15,7 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 
 //body parser
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 //middlewares
@@ -24,6 +24,18 @@ app.use(expressValidator());
 app.use(morgan("dev"));
 app.use(cors());
 
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+
+app.get("/", (req, res) => {
+  res.status(200).json({ message: "Enable CORS in Node.js - Clue Mediator" });
+});
 //routes
 app.use("/api", require("./routes/users"));
 app.use("/api", require("./routes/categories"));
