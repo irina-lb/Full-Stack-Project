@@ -24,7 +24,6 @@ function CreateProduct() {
     photo: "",
     loading: false,
     error: "",
-    redirect: false,
     success: false,
     formData: "",
   });

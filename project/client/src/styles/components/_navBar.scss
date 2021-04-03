@@ -1,8 +1,16 @@
 //NavBar
 nav {
+  background: transparent;
+  height: 12vh;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
   display: flex;
   width: 100%;
   color: $dark-gray;
+  z-index: 98;
+  overflow: hidden;
+
   .hamburger {
     display: none;
   }
@@ -32,7 +40,6 @@ nav {
     padding: 0 3rem;
     display: flex;
     align-items: center;
-    list-style: none;
     justify-content: flex-end;
     gap: 1rem;
     font-size: 1.2rem;
@@ -54,28 +61,44 @@ nav {
       align-items: center;
       justify-content: flex-end;
       gap: 2rem;
-      img {
-        width: 60px;
-        height: 60px;
-      }
-      sup {
-        font-size: small;
-        font-weight: bold;
-        color: brown;
-        &:hover {
-          border-bottom: 2px solid $dark-gray;
+
+      .userIcons {
+        display: flex;
+        gap: 0.5rem;
+        .userCartLink {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: white;
+          width: 70px;
+          height: 70px;
+          border-radius: 50%;
+          img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+          }
+          sup {
+            margin-top: 30px;
+            font-size: small;
+            font-weight: bold;
+            color: brown;
+            &:hover {
+              border-bottom: 2px solid $dark-gray;
+            }
+          }
         }
       }
     }
 
     .signUp {
-      background: $dark-yellow;
       color: $dark-gray;
       padding: 0.2rem 0.5rem;
+      border: 2px solid $light-yellow;
+      background-color: $light-yellow;
       border-radius: 20px;
       &:hover {
-        background-color: $light-yellow;
-        color: black;
+        background-color: transparent;
       }
     }
   }
@@ -89,10 +112,9 @@ nav {
     .hamburger {
       display: block;
       position: absolute;
-      position: fixed;
-      top: 3rem;
+      top: 1rem;
       right: 3rem;
-      z-index: 1000;
+      z-index: 90;
       cursor: pointer;
     }
 
@@ -119,7 +141,7 @@ nav {
         color: black;
         &:hover {
           color: $dark-gray;
-          border-bottom: 2px solid$dark-gray;
+          border-bottom: 2px solid $dark-gray;
         }
       }
 
@@ -138,6 +160,11 @@ nav {
           }
         }
       }
+      .userIcons {
+        width: 100%;
+        justify-content: center;
+      }
+
       @media screen and (max-width: 450px) {
         .registration {
           display: flex;
@@ -152,4 +179,7 @@ nav {
       -webkit-clip-path: circle(1000px at 90% 10%);
     }
   }
+}
+.activeNavBar {
+  background-color: white;
 }

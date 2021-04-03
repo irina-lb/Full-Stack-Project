@@ -2,6 +2,8 @@
 import { API } from "../../config";
 //hooks
 import { useState } from "react";
+//import routes
+import { Link } from "react-router-dom";
 //import function
 import { updateProduct, deleteProduct } from "../../controllers/cart";
 
@@ -26,8 +28,12 @@ function CartItem({ item, setLoad, load }) {
       </div>
       <div className="itemQuantity">
         <div className="itemInput">
-          <p>Total price: {item.price * item.count} €</p>
-          <p>Quantity:</p>
+          <p>
+            <span>Total price:</span> {item.price * item.count} €
+          </p>
+          <p>
+            <span>Choose quantity:</span>
+          </p>
           <input
             type="number"
             value={item.count}
@@ -35,7 +41,9 @@ function CartItem({ item, setLoad, load }) {
           />
         </div>
         <div className="buttons">
-          <button className="buttonView">View</button>
+          <Link to={`/menu/${item._id}`}>
+            <button className="buttonView">View</button>
+          </Link>
           <button
             className="buttonAdd"
             onClick={() => {

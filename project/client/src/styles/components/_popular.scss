@@ -1,13 +1,13 @@
 .popularRecipes {
+  @extend %column-center;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background-color: $light-yellow;
-  padding: 3rem 0 0 0;
+  padding: 2rem 0;
   h3 {
     @extend %base-header;
-    color: $dark-gray;
+    color: $light-gray;
+    margin: 0rem 2rem;
+    text-align: center;
   }
   .popularImages {
     max-width: 1100px;
@@ -15,13 +15,65 @@
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: 1rem;
     padding: 2rem;
-    img {
-      @extend %base-img;
+    a {
       width: 30%;
-      height: 35vh;
-      object-fit: cover;
+      position: relative;
+      img {
+        @extend %base-img;
+        width: 100%;
+        height: 35vh;
+      }
+
+      p {
+        position: absolute;
+        top: 9rem;
+        left: 0.5rem;
+        padding: 0.3rem 0.5rem;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s;
+        font-weight: bold;
+        font-size: 1.2rem;
+        color: $dark-gray;
+        background-color: white;
+        border-radius: 10px;
+      }
+    }
+    a:hover p {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.5s 0.2s;
+      z-index: 50;
+    }
+    a:hover img {
+      @extend %blur;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .popularImages {
+      max-width: 90%;
+      margin: 0 auto;
+      a {
+        width: 40%;
+        p {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 520px) {
+    .popularImages {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      a {
+        width: 100%;
+        p {
+          font-size: 1.1rem;
+        }
+      }
     }
   }
 }

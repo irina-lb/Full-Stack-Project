@@ -6,6 +6,7 @@ $dark-gray: #464747;
 $light-gray: #939597;
 $dark-yellow: #ffc30b;
 $light-yellow: #f5df4d;
+$background-gray: rgba(147, 149, 151, 0.2);
 
 //fonts
 $base-font: "Noto Sans HK", sans-serif;
@@ -13,19 +14,17 @@ $headers-font: "Dancing Script", cursive;
 
 //button
 %base-button {
-  border: 2px solid $dark-yellow;
+  border: 3px solid $dark-yellow;
   border-radius: 20px;
-  background: $dark-yellow;
+  background-color: $dark-yellow;
   color: $dark-gray;
   font-size: 1.2rem;
-  padding: 0.8rem 3rem;
+  padding: 0.6rem 2.5rem;
   text-align: center;
   cursor: pointer;
   transition: all 0.5s;
-
   &:hover {
-    background-color: $light-yellow;
-    color: black;
+    background-color: transparent;
   }
 }
 %product-button {
@@ -34,12 +33,14 @@ $headers-font: "Dancing Script", cursive;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.5s;
+  width: 80px;
 }
 
 //img
 %base-img {
   border-radius: 10px;
-  box-shadow: 0 5px 5px black;
+  box-shadow: 0 2px 4px black;
+  object-fit: cover;
 }
 
 //link
@@ -66,4 +67,68 @@ $headers-font: "Dancing Script", cursive;
   color: $dark-yellow;
   font-family: $headers-font;
   font-size: 3rem;
+}
+
+//space between flex
+%flex-between {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+//center column
+%column-center {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+//grid section
+%base-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-column-gap: 3rem;
+  grid-row-gap: 5rem;
+  margin: 0 auto;
+}
+
+%blur {
+  transition: all 0.5s;
+  &:hover {
+    box-shadow: 4px 4px 4px $dark-gray;
+    filter: blur(3px);
+    transform: scale(1.08);
+  }
+}
+
+%shadow {
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: scroll;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+%card {
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 1rem;
+  padding: 1rem 5rem;
+  background: white;
+  position: absolute;
+  left: 10%;
+  color: black;
+  z-index: 100;
+}
+%close {
+  color: $dark-gray;
+  float: right;
+  margin: 0.5rem;
+  cursor: pointer;
 }

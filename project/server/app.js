@@ -12,7 +12,7 @@ require("dotenv").config();
 const app = express();
 
 //port
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 2000;
 
 //body parser
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -36,10 +36,15 @@ app.use(function (req, res, next) {
 app.get("/", (req, res) => {
   res.status(200).json({ message: "Enable CORS in Node.js - Clue Mediator" });
 });
+
 //routes
 app.use("/api", require("./routes/users"));
 app.use("/api", require("./routes/categories"));
 app.use("/api", require("./routes/products"));
+app.use("/api", require("./routes/post"));
+app.use("/api", require("./routes/braintree"));
+app.use("/api", require("./routes/order"));
+app.use("/api", require("./routes/mail"));
 
 //mongodb connection
 mongoose.connect(process.env.MONGO_URI, {

@@ -2,10 +2,14 @@
 import { useState, useEffect } from "react";
 //functions import
 import { getProducts } from "../../controllers/product";
-//import components
-import ProductCard from "./ProductCard";
+//import router
+import { Link } from "react-router-dom";
 //import api
 import { API } from "../../config";
+import { useLocation } from "react-router-dom";
+//animation
+import { motion } from "framer-motion";
+import { fade } from "../../animation";
 
 function NewArrival() {
   //states
@@ -38,20 +42,24 @@ function NewArrival() {
           d="M0,224L120,229.3C240,235,480,245,720,245.3C960,245,1200,235,1320,229.3L1440,224L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
         />
       </svg>
-      <div className="newRecipes">
-        <h4>Check our New Arrivals</h4>
+      <motion.div className="newRecipes">
+        <motion.h4 variants={fade}>Check our New Arrivals</motion.h4>
         <div className="newArrival">
           {byArrival.map((product) => (
-            <div key={product._id} className="card">
-              <img
-                src={`${API}/product/photo/${product._id}`}
-                alt={product.name}
-                key={product._id}
-              />
-            </div>
+            <motion.div key={product._id} className="card">
+              <Link to={`/menu/${product._id}`}>
+                <p>{product.name}</p>
+                <motion.img
+                  variants={fade}
+                  src={`${API}/product/photo/${product._id}`}
+                  alt={product.name}
+                  key={product._id}
+                />
+              </Link>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </>
   );
 }

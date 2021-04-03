@@ -1,46 +1,47 @@
 .cartItem {
+  @extend %flex-between;
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
   border: 2px solid $dark-gray;
   border-radius: 10px;
   padding: 1rem;
   margin: 1rem 0rem;
-  background-color: rgba(147, 149, 151, 0.2);
+  background-color: $background-gray;
   .productPhoto {
+    @extend %column-center;
     width: 40%;
-    display: flex;
-    flex-direction: column;
     gap: 0.5rem;
-    align-items: center;
-
+    h3 {
+      font-family: $headers-font;
+      font-size: 1.5rem;
+    }
     img {
       @extend %base-img;
       width: 80%;
+      height: 25vh;
     }
   }
   .itemQuantity {
+    @extend %flex-between;
     width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     gap: 0.5rem;
     padding: 0rem 1rem;
     .itemInput {
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
+
+      span {
+        font-weight: bold;
+        font-size: 1rem;
+      }
+
       input {
         width: 80px;
       }
     }
     .buttons {
+      @extend %column-center;
       width: 30%;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
       .buttonAdd {
         @extend %product-button;
         border: 2px solid $dark-yellow;
@@ -54,6 +55,30 @@
         &:hover {
           background-color: $dark-gray;
           color: white;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 575px) {
+    .productPhoto {
+      h3 {
+        font-size: 0.9rem;
+      }
+    }
+    .itemQuantity {
+      width: 60%;
+      .itemInput {
+        gap: 0.2rem;
+        span {
+          font-weight: normal;
+          font-size: 0.8rem;
+        }
+        p {
+          font-size: 0.8rem;
+        }
+        input {
+          width: 50px;
         }
       }
     }

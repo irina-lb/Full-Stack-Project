@@ -14,6 +14,16 @@ body {
 
 a {
   text-decoration: none;
+  color: $dark-gray;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+.Routes {
+  height: 100%;
 }
 
 //HomePage
@@ -33,11 +43,15 @@ a {
 //User Dashboard
 @import "./pages/userDashboard";
 @import "./components/userInfo";
+@import "./components/userOrdersHistory";
 
 //AdminDashboard
 @import "./pages/adminDashboard";
 @import "./components/createCategory";
 @import "./components/createProduct";
+@import "./components/orders";
+@import "./components/updateProduct";
+@import "./components/updateCategory";
 
 //Menu
 @import "./pages/menu";
@@ -47,3 +61,14 @@ a {
 //Shopping Cart
 @import "./pages/shoppingCart";
 @import "./components/cartItem";
+@import "./pages/checkout";
+
+//Blog
+@import "./pages/blog";
+@import "./components/post";
+
+//FAQ
+@import "./pages/faq";
+
+//Contacts
+@import "./pages/contacts";

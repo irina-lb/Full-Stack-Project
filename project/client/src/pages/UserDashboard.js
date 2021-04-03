@@ -5,12 +5,12 @@ import UserRoutes from "../routes/UserRoutes";
 //import components
 import UserSidebar from "../components/user/UserSideBar";
 
-function UserDashboard({ history }) {
+function UserDashboard() {
   //take user from jwt
   const { user } = isAuthenticated();
   return (
     <div className="userDashboard">
-      <div className="userInfo">
+      <div className="userHello">
         <h2>
           Hello
           <span>
@@ -19,8 +19,8 @@ function UserDashboard({ history }) {
           !
         </h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae,
-          in?
+          We are glad to see you with us!! Here you can check your personal
+          information and history of your orders.
         </p>
       </div>
       <div className="userMainSection">

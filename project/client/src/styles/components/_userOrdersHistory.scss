@@ -1,0 +1,37 @@
+.userOrderHistory {
+  @extend %column-center;
+  margin: 1rem;
+  h3 {
+    @extend %base-header;
+    font-size: 2rem;
+  }
+  ul {
+    width: 100%;
+    .allOrders {
+      @extend %base-grid;
+      grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+      grid-row-gap: 0.5rem;
+      margin: 0.5rem;
+      p {
+        font-weight: bold;
+        color: $dark-gray;
+        span {
+          color: $light-gray;
+        }
+      }
+      .productOrderInfo {
+        font-size: 0.8rem;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .allOrders {
+    p {
+      font-size: 0.7rem;
+    }
+  }
+}

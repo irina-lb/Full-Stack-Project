@@ -4,6 +4,8 @@ import { API } from "../../config";
 import { useState, useEffect } from "react";
 //functions import
 import { getProducts } from "../../controllers/product";
+//import routes
+import { Link } from "react-router-dom";
 
 function Popular() {
   //states
@@ -29,11 +31,13 @@ function Popular() {
       <h3>Our clients' favorite recipes</h3>
       <div className="popularImages">
         {bySell.map((product) => (
-          <img
-            src={`${API}/product/photo/${product._id}`}
-            alt={product.name}
-            key={product._id}
-          />
+          <Link to={`/menu/${product._id}`} key={product._id}>
+            <img
+              src={`${API}/product/photo/${product._id}`}
+              alt={product.name}
+            />
+            <p>{product.name}</p>
+          </Link>
         ))}
       </div>
     </div>

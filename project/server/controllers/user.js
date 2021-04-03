@@ -1,5 +1,6 @@
 //schema import
 const User = require("../models/user");
+const { Order } = require("../models/order");
 
 //show user profile
 exports.showUser = (req, res) => {
@@ -24,4 +25,19 @@ exports.updateUser = (req, res) => {
       res.json(user);
     }
   );
+};
+
+//get user history of orders
+exports.userHistory = (req, res) => {
+  Order.find({ user: req.profile._id })
+    .populate("user", "_id firstName lastName")
+    .sort("-created")
+    .exec((error, orders) => {
+      if (error) {
+        return res.status(400).json({
+          error,
+        });
+      }
+      res.json(orders);
+    });
 };

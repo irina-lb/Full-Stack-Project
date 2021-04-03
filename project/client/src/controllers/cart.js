@@ -1,3 +1,6 @@
+//api
+import { API } from "../config";
+
 //add product to the local storage
 export const addProduct = (item) => {
   let cart = [];
@@ -72,4 +75,36 @@ export const deleteProduct = (productId) => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }
   return cart;
+};
+
+// total of products in the cart
+export const getTotal = () => {
+  return getCartProducts().reduce((current, next) => {
+    return current + next.count * next.price;
+  }, 0);
+};
+
+//empty cart after payment
+export const emptyCart = (next) => {
+  if (typeof window !== "undefined") {
+    localStorage.removeItem("cart");
+  }
+  next();
+};
+
+//process payment charge
+export const chargePayment = (userId, token, paymentData) => {
+  return fetch(`${API}/braintree/payment/${userId}`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(paymentData),
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((error) => console.log(error));
 };

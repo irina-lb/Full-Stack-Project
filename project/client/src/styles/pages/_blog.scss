@@ -1,0 +1,121 @@
+.blogLayout {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  svg {
+    position: absolute;
+    z-index: -100;
+  }
+  .container {
+    width: 100%;
+    background-color: $light-gray;
+    margin: 1.2rem auto;
+    padding: 2rem;
+    .description {
+      max-width: 1000px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      flex-wrap: no-wrap;
+      .descriptionText {
+        width: 55%;
+        padding: 0rem 3rem 0rem 0rem;
+        h2 {
+          @extend %base-header;
+          color: $light-yellow;
+          padding: 1rem 0rem;
+        }
+      }
+      img {
+        @extend %base-img;
+        width: 40%;
+        height: 60vh;
+      }
+    }
+  }
+  @media screen and (max-width: 720px) {
+    .container {
+      width: 100%;
+      .description {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        .descriptionText {
+          width: 100%;
+          padding: 0.5rem;
+        }
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+.pagination {
+  width: 100%;
+  height: 10vh;
+  ul {
+    display: flex;
+    float: right;
+    padding-right: 3rem;
+    li {
+      padding: 0.5rem;
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: $light-gray;
+      cursor: pointer;
+    }
+  }
+  .activePage {
+    color: $dark-yellow;
+  }
+}
+.allPosts {
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 1rem auto;
+  .post {
+    width: 40%;
+    background-color: $background-gray;
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 1rem 2rem;
+    transition: transform 0.5s, box-shadow 0.5s;
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 5px 5px 5px gray;
+    }
+    img {
+      @extend %base-img;
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .postInfo {
+      background-color: white;
+      margin-top: 0.5rem;
+      padding: 0.5rem;
+      border-radius: 10px;
+      color: $dark-gray;
+      h3 {
+        @extend %base-header;
+        font-size: 2rem;
+      }
+      small {
+        color: $dark-yellow;
+      }
+    }
+  }
+  @media screen and (max-width: 720px) {
+    flex-direction: column;
+    .post {
+      width: 85%;
+      padding: 0.5rem;
+    }
+  }
+}

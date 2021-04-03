@@ -21,13 +21,23 @@ function AdminSideBar() {
   return (
     <div className="adminSideBar">
       <div className="adminInfo">
-        <h4>
-          <Link to="/admin/info">Personal information</Link>
-        </h4>
+        <ul>
+          <h4>Orders:</h4>
+          <li>
+            <Link
+              className="adminLink"
+              to="/admin/show_orders"
+              style={isActive("/admin/show_orders")}
+            >
+              Show orders
+            </Link>
+          </li>
+        </ul>
         <ul>
           <h4>Categories:</h4>
           <li>
             <Link
+              className="adminLink"
               to="/admin/create_category"
               style={isActive("/admin/create_category")}
             >
@@ -36,14 +46,58 @@ function AdminSideBar() {
           </li>
           <li>
             <Link
+              className="adminLink"
               to="/admin/update_category"
               style={isActive("/admin/update_category")}
             >
-              Change category
+              Update/delete category
+            </Link>
+          </li>
+        </ul>
+        <ul>
+          <h4>Products:</h4>
+          <li>
+            <Link
+              className="adminLink"
+              to="/admin/create_product"
+              style={isActive("/admin/create_product")}
+            >
+              Create product
             </Link>
           </li>
           <li>
+            <Link
+              className="adminLink"
+              to="/admin/update_products"
+              style={isActive("/admin/update_products")}
+            >
+              Update/delete product
+            </Link>
+          </li>
+          <ul>
+            <h4>Blog:</h4>
+            <li>
+              <Link
+                className="adminLink"
+                to="/admin/create_post"
+                style={isActive("/admin/create_post")}
+              >
+                Create post
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="adminLink"
+                to="/admin/update_post"
+                style={isActive("/admin/update_post")}
+              >
+                Update/delete post
+              </Link>
+            </li>
+          </ul>
+          <li>
             <a
+              className="adminLink signout"
               onClick={() =>
                 signout(() => {
                   history.push("/");
@@ -53,26 +107,6 @@ function AdminSideBar() {
               Sign Out
             </a>
           </li>
-        </ul>
-        <ul>
-          <h4>Products:</h4>
-          <li>
-            <Link
-              to="/admin/create_product"
-              style={isActive("/admin/create_product")}
-            >
-              Create product
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/admin/update_product"
-              style={isActive("/admin/update_product")}
-            >
-              Change product
-            </Link>
-          </li>
-          <li>Sign Out</li>
         </ul>
       </div>
     </div>

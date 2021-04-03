@@ -1,12 +1,15 @@
 //import states
 import { useState } from "react";
 //routes import
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 //import functions
 import { login, authenticate, isAuthenticated } from "../controllers/auth";
 import { showLoading, showError } from "../controllers/alerts";
 //img import
 import welcome from "../styles/img/welcome.jpg";
+//animation
+import { motion } from "framer-motion";
+import { pageAnimation } from "../animation";
 
 function LogIn() {
   //states
@@ -60,7 +63,13 @@ function LogIn() {
   };
 
   return (
-    <div className="loginForm">
+    <motion.div
+      className="loginForm"
+      variants={pageAnimation}
+      exit="exit"
+      initial="hidden"
+      animate="show"
+    >
       <div className="formText">
         <h2>Are you ready?</h2>
         <p>
@@ -95,9 +104,12 @@ function LogIn() {
         </div>
         <button onClick={submitForm}>Submit</button>
       </form>
+      <p>
+        <small>Don't have an account?</small> <Link to="signup"> Sign Up</Link>
+      </p>
       {redirectUser()}
       <img src={welcome} alt="Ups.." />
-    </div>
+    </motion.div>
   );
 }
 

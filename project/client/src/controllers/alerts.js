@@ -1,5 +1,7 @@
 //routes import
 import { Link } from "react-router-dom";
+//alerts
+import swal from "sweetalert";
 
 //login and signup error
 export const showError = (error) => (
@@ -40,8 +42,46 @@ export const categoryError = (error) => {
   }
 };
 
+//success created product
 export const productSuccess = (success) => {
   if (success) {
     return <div className="success">The product is created</div>;
   }
+};
+
+//success created post
+export const postSuccess = (success) => {
+  if (success) {
+    return <div className="success">The post is created</div>;
+  }
+};
+
+//alerts of adding to cart
+export const productAlert = (product) => {
+  swal({
+    title: `${product.name}`,
+    text: "has been added to your cart",
+    icon: "success",
+    button: "OK",
+    timer: "3000",
+  });
+};
+
+//success alert, adding product to the cart
+export const loginAlert = () => {
+  swal({
+    title: "Ups..",
+    text: "You have to log in before",
+    icon: "warning",
+    button: "OK",
+  });
+};
+//success alert, adding product to the cart
+export const adminAlert = () => {
+  swal({
+    title: "Ups..",
+    text: "You should to be a user!",
+    icon: "error",
+    button: "OK",
+  });
 };

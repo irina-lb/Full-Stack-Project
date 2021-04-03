@@ -1,14 +1,23 @@
+//animation
+import { motion } from "framer-motion";
+import { photoAnimation, fade, scrollReveal } from "../../animation";
+
 function Layout({ title, text, img }) {
   return (
-    <div className="container">
-      <div className="description">
-        <div className="descriptionText">
-          <h2>{title}</h2>
-          <p>{text}</p>
-        </div>
-        <img src={img} alt="Ups.." />
-      </div>
-    </div>
+    <motion.div className="container">
+      <motion.div className="description">
+        <motion.div className="descriptionText">
+          <motion.h2 variants={fade}>{title}</motion.h2>
+          <motion.p variants={fade}>{text}</motion.p>
+        </motion.div>
+        <motion.img
+          variant={photoAnimation}
+          src={img}
+          alt="Ups.."
+          variants={photoAnimation}
+        />
+      </motion.div>
+    </motion.div>
   );
 }
 

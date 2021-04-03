@@ -16,6 +16,17 @@ import { productsTotal } from "../controllers/cart";
 function NavBar() {
   //states
   const [isOpen, setIsOpen] = useState(false);
+  const [sticky, setSticky] = useState(false);
+
+  //change navbar color
+  const changeColor = () => {
+    if (window.scrollY >= 55) {
+      setSticky(true);
+    } else {
+      setSticky(false);
+    }
+  };
+  window.addEventListener("scroll", changeColor);
 
   //hamburger menu
   const toggleMenu = () => {
@@ -42,11 +53,11 @@ function NavBar() {
   };
 
   return (
-    <nav>
+    <nav className={sticky ? "activeNavBar" : ""}>
       <NavLink className="logoLink link" to="/">
         <div className="logoSection">
           <img src={logo} className="logo" />
-          <p>HomeChef</p>
+          <p>CookAsChef</p>
         </div>
       </NavLink>
       <FontAwesomeIcon
@@ -58,7 +69,7 @@ function NavBar() {
       <ul className={isOpen ? "open" : null}>
         <li onClick={toggleMenu}>
           <NavLink className="link" to="/" style={isActive("/")}>
-            About
+            Home
           </NavLink>
         </li>
         <li onClick={toggleMenu}>
@@ -67,8 +78,8 @@ function NavBar() {
           </NavLink>
         </li>
         <li onClick={toggleMenu}>
-          <NavLink className="link" to="/faq" style={isActive("/faq")}>
-            FAQ
+          <NavLink className="link" to="/blog" style={isActive("/blog")}>
+            Blog
           </NavLink>
         </li>
         <li onClick={toggleMenu}>
@@ -78,6 +89,11 @@ function NavBar() {
             style={isActive("/contacts")}
           >
             Contacts
+          </NavLink>
+        </li>
+        <li onClick={toggleMenu}>
+          <NavLink className="link" to="/faq" style={isActive("/faq")}>
+            FAQ
           </NavLink>
         </li>
         <li className="registration" onClick={toggleMenu}>
@@ -96,15 +112,15 @@ function NavBar() {
             </>
           )}
           {user && user.role === 0 && (
-            <>
-              <NavLink to="/user/dashboard">
+            <div className="userIcons">
+              <NavLink to="/user/dashboard" className="userCartLink">
                 <img className="icon" src={users} alt="Ups..." />
               </NavLink>
-              <NavLink to="/user/shoppingCart">
+              <NavLink to="/user/shoppingCart" className="userCartLink">
                 <img className="icon" src={cart} alt="Ups..." />
                 <sup>{productsTotal()} </sup>
               </NavLink>
-            </>
+            </div>
           )}
           {user && user.role === 1 && (
             <>

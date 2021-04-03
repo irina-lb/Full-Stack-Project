@@ -1,0 +1,51 @@
+.faq {
+  @extend %column-center;
+  gap: 0.5rem;
+  width: 100%;
+  margin: 2rem auto;
+  color: $dark-gray;
+  h3 {
+    @extend %base-header;
+    font-size: 2.5rem;
+    margin: 0rem 3rem;
+    text-align: center;
+  }
+  .toggleText {
+    text-align: center;
+  }
+  .toggleText {
+    font-size: 1.2rem;
+    margin-bottom: 0.7rem;
+    a {
+      font-weight: bold;
+      transition: all 0.5s;
+      &:hover {
+        color: $dark-yellow;
+        border-bottom: 2px solid $dark-yellow;
+      }
+    }
+  }
+  .questions {
+    width: 70%;
+    margin: 0 auto;
+    .question {
+      background-color: $light-yellow;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      p {
+        font-weight: normal;
+      }
+      padding: 0.4rem;
+      i {
+        margin: 0 0.5rem;
+        color: $dark-gray;
+      }
+    }
+    .answer {
+      background-color: white;
+      border-radius: 10px;
+      padding: 0.4rem;
+    }
+  }
+}

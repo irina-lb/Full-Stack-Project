@@ -1,17 +1,86 @@
 .userInfo {
-  color: $dark-gray;
-  h2 {
-    font-size: 1.5rem;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  .linkToUpdate {
+    font-weight: bold;
+    margin: 0.5rem;
   }
   ul {
-    padding: 2rem;
+    padding: 1rem;
     font-size: 1rem;
-    list-style: none;
-    font-weight: bold;
     li {
-      padding: 0.2rem;
+      padding: 0.4rem;
       span {
-        font-weight: normal;
+        font-weight: bold;
+        padding-right: 0.2rem;
+      }
+    }
+  }
+  @media screen and (max-width: 860px) {
+    h4 {
+      display: none;
+    }
+    .sideBarList {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: 0.3;
+      li {
+        text-align: center;
+        padding: 0.2;
+      }
+    }
+  }
+}
+
+.userUpdate {
+  @extend %column-center;
+  align-items: flex-start;
+  h3 {
+    @extend %base-header;
+    font-size: 2rem;
+  }
+  form {
+    width: 80%;
+    margin: 0 auto;
+    div {
+      display: flex;
+      input {
+        width: 70%;
+        margin: 0.5rem;
+      }
+      label {
+        width: 20%;
+        margin: 0.5rem;
+        font-weight: bold;
+      }
+      #birthDate {
+        width: 30%;
+      }
+    }
+  }
+  button {
+    @extend %base-button;
+    float: right;
+  }
+
+  @media screen and (max-width: 860px) {
+    h3 {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  @media screen and (max-width: 530px) {
+    label {
+      font-size: 0.8rem;
+    }
+    form {
+      div {
+        #birthDate {
+          width: 50%;
+          padding-bottom: 0.4rem;
+        }
       }
     }
   }

@@ -2,34 +2,33 @@
 import cooking from "../../styles/img/cooking.png";
 //router import
 import { Link } from "react-router-dom";
+//animation
+import { motion } from "framer-motion";
+import { titleAnimation, fade } from "../../animation";
 
 function Header() {
   return (
-    <div className="header">
-      <div className="header-text">
-        <div className="title">
-          <div className="hide">
-            <h1>Let's cook</h1>
-          </div>
-          <div className="hide">
-            <h1>
+    <motion.div className="header">
+      <motion.div className="header-text">
+        <motion.div className="title">
+          <motion.div className="hide">
+            <motion.h1 variants={titleAnimation}>Let's cook</motion.h1>
+          </motion.div>
+          <motion.div className="hide">
+            <motion.h1 variants={titleAnimation}>
               something <span> yummy </span>
-            </h1>
-          </div>
-          <div className="hide">
-            <h1>together.</h1>
-          </div>
-        </div>
-        <p>
-          Step by step recipes and fresh pre-portioned ingredients right to your
-          door.
-        </p>
+            </motion.h1>
+          </motion.div>
+          <motion.div className="hide">
+            <motion.h1 variants={titleAnimation}>together.</motion.h1>
+          </motion.div>
+        </motion.div>
         <Link to="/menu" className="header-button">
-          <button>Try now</button>
+          <motion.button variants={fade}>Try now</motion.button>
         </Link>
-      </div>
+      </motion.div>
       <img src={cooking} alt="Ups.." />
-    </div>
+    </motion.div>
   );
 }
 

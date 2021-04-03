@@ -3,7 +3,7 @@ const express = require("express");
 
 //controllers import
 const { signup, login, signout } = require("../controllers/auth");
-const { showUser, updateUser } = require("../controllers/user");
+const { showUser, updateUser, userHistory } = require("../controllers/user");
 
 //router
 const router = express.Router();
@@ -23,6 +23,8 @@ router.post("/login", login);
 router.get("/signout", signout);
 router.get("/user/:userId", requireLogIn, isAuth, showUser);
 router.put("/user/:userId", requireLogIn, isAuth, updateUser);
+
+router.get("/user/orders/:userId", requireLogIn, isAuth, userHistory);
 
 router.param("userId", userById);
 

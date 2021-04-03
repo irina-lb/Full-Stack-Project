@@ -6,9 +6,10 @@ import { getCartProducts } from "../controllers/cart";
 import hello from "../styles/icons/Hello.png";
 //components import
 import CartItem from "../components/user/CartItem";
-import CheckOut from "../components/user/CheckOut";
+import Total from "../components/user/Total";
+import CheckOut from "./CheckOut";
 //import routes
-import { Link } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 
 function ShoppingCart() {
   //states
@@ -20,14 +21,28 @@ function ShoppingCart() {
     setCart(getCartProducts());
   }, [load]);
 
+  //location
+  const path = useLocation().pathname;
+
   return (
     <div className="shoppingCart">
+      {path && path === "/user/checkout" && (
+        <CheckOut cart={cart} load={load} setLoad={setLoad} />
+      )}
       <h4>Shopping Cart</h4>
-      <p>
-        <img src={hello} alt="Ups..." />
-        You have {cart.length} products in your cart...
-        <Link to="/menu">Back to Menu</Link>
-      </p>
+      {cart.length > 0 ? (
+        <p>
+          <img src={hello} alt="Ups..." />
+          You have {cart.length} product(s) in your cart...
+          <Link to="/menu">Back to Menu</Link>
+        </p>
+      ) : (
+        <p>
+          <img src={hello} alt="Ups..." />
+          Your cart is empty...Do you want to check our menu?
+          <Link to="/menu"> Back to Menu</Link>
+        </p>
+      )}
       <div className="showItems">
         <div className="items">
           {cart.map((item) => (
@@ -39,9 +54,11 @@ function ShoppingCart() {
             />
           ))}
         </div>
-        <div className="checkoutItems">
-          <CheckOut cart={cart} />
-        </div>
+        {cart.length > 0 ? (
+          <div className="checkoutItems">
+            <Total cart={cart} />
+          </div>
+        ) : null}
       </div>
     </div>
   );

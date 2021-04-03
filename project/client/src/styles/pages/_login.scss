@@ -1,11 +1,8 @@
 .loginForm {
+  @extend %column-center;
   width: 100%;
   margin: 0 auto;
   padding: 0rem 3rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   color: $dark-gray;
   .formText {
     text-align: center;
@@ -16,18 +13,16 @@
       font-size: 1rem;
     }
   }
+  a {
+    @extend %base-link;
+  }
   form {
+    @extend %column-center;
     width: 40%;
-    padding: 1rem 0rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+    padding-top: 1rem;
     .formItem {
+      @extend %flex-between;
       width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       label {
         width: 30%;
         font-size: 1rem;
@@ -54,17 +49,12 @@
     }
   }
   @media screen and (max-width: 480px) {
-    form {
+    form,
+    .formItem {
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      .formItem {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
     }
   }
 }
