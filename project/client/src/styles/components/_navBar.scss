@@ -9,7 +9,7 @@ nav {
   width: 100%;
   color: $dark-gray;
   z-index: 98;
-  overflow: hidden;
+  overflow-x: hidden;
 
   .hamburger {
     display: none;
@@ -175,8 +175,8 @@ nav {
     }
 
     .open {
-      clip-path: circle(1000px at 90% 10%);
-      -webkit-clip-path: circle(1000px at 90% 10%);
+      clip-path: circle(1300px at 90% 10%);
+      -webkit-clip-path: circle(1300px at 90% 10%);
     }
   }
 }

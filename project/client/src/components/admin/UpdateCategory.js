@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 //import functions
 import { isAuthenticated } from "../../controllers/auth";
 import { getCategories, deleteCategory } from "../../controllers/category";
-import { categorySuccess, categoryError } from "../../controllers/alerts";
 
 function UpdateCategory() {
   //states

@@ -14,13 +14,12 @@ import { fade } from "../../animation";
 function NewArrival() {
   //states
   const [byArrival, setByArrival] = useState([]);
-  const [error, setError] = useState(false);
 
   //show new products
   const productsByArrival = () => {
     getProducts("createdAt", 4).then((data) => {
       if (data.error) {
-        setError(data.error);
+        console.log(data.error);
       } else {
         setByArrival(data);
       }

@@ -6,8 +6,6 @@ import PostDetails from "../components/blog/PostDetails";
 import tips from "../styles/img/tips.jpg";
 // import hooks
 import { useState, useEffect } from "react";
-//api
-import { API } from "../config";
 //functions import
 import { getPosts } from "../controllers/blog";
 import { useLocation } from "react-router-dom";
@@ -18,7 +16,6 @@ import { pageAnimation } from "../animation";
 function Blog() {
   //states
   const [posts, setPosts] = useState([]);
-  const [error, setError] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [limit] = useState(4);
 
@@ -44,7 +41,7 @@ function Blog() {
   const allPosts = () => {
     getPosts().then((data) => {
       if (data.error) {
-        setError(data.error);
+        console.log(data.error);
       } else {
         setPosts(data);
       }

@@ -6,12 +6,7 @@ import { useHistory } from "react-router-dom";
 import DropIn from "braintree-web-drop-in-react";
 //functions import
 import { getBraintreeToken } from "../controllers/braintree";
-import {
-  getCartProducts,
-  getTotal,
-  chargePayment,
-  emptyCart,
-} from "../controllers/cart";
+import { getTotal, chargePayment, emptyCart } from "../controllers/cart";
 import { isAuthenticated } from "../controllers/auth";
 import { createNewOrder } from "../controllers/order";
 

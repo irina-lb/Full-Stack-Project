@@ -4,6 +4,7 @@
   flex-direction: column;
   color: $dark-gray;
   position: relative;
+  overflow-x: hidden;
   .svg {
     position: absolute;
     z-index: -100;

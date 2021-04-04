@@ -3,6 +3,7 @@
 .aboutSection {
   background-color: $light-gray;
   position: relative;
+  overflow-x: hidden;
   svg {
     position: absolute;
   }

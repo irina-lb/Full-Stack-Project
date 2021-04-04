@@ -4,7 +4,7 @@ import { useState } from "react";
 import { sendEmail } from "../controllers/mail";
 //animation
 import { motion } from "framer-motion";
-import { photoAnimation, fade } from "../animation";
+import { fade } from "../animation";
 
 function ContactForm() {
   //states

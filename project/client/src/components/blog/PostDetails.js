@@ -13,13 +13,12 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 function PostDetails({ pathId }) {
   //state
   const [post, setPost] = useState({});
-  const [error, setError] = useState(false);
 
   //load post by id
   const loadPost = (postId) => {
     postById(postId).then((data) => {
       if (data.error) {
-        setError(data.error);
+        console.log(data.error);
       } else {
         setPost(data);
       }

@@ -1,6 +1,6 @@
 //animation
 import { motion } from "framer-motion";
-import { photoAnimation, fade, scrollReveal } from "../../animation";
+import { photoAnimation, fade } from "../../animation";
 
 function Layout({ title, text, img }) {
   return (
@@ -10,12 +10,7 @@ function Layout({ title, text, img }) {
           <motion.h2 variants={fade}>{title}</motion.h2>
           <motion.p variants={fade}>{text}</motion.p>
         </motion.div>
-        <motion.img
-          variant={photoAnimation}
-          src={img}
-          alt="Ups.."
-          variants={photoAnimation}
-        />
+        <motion.img src={img} alt="Ups.." variants={photoAnimation} />
       </motion.div>
     </motion.div>
   );

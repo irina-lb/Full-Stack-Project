@@ -9,13 +9,10 @@ import FilterByPrice from "./FilterByPrice";
 import ProductCard from "./ProductCard";
 //import util
 import { prices } from "../../util";
-//routes import
-import { useLocation } from "react-router-dom";
 
 function ProductsFilter() {
   //states
   const [categories, setCategories] = useState([]);
-  const [error, setError] = useState("");
   const [skip, setSkip] = useState(0);
   const [limit, setLimit] = useState(9);
   const [size, setSize] = useState(0);
@@ -28,17 +25,18 @@ function ProductsFilter() {
   const allCategories = () => {
     getCategories().then((data) => {
       if (data.error) {
-        setError(data.error);
+        console.log(data.error);
       } else {
         setCategories(data);
       }
     });
   };
+
   //get products
   const loadProducts = (productFilters) => {
     showFilteredProducts(skip, limit, productFilters).then((data) => {
       if (data.error) {
-        setError(data.error);
+        console.log(data.error);
       } else {
         setResult(data.data);
         setSize(data.size);
@@ -79,7 +77,7 @@ function ProductsFilter() {
     let toSkip = skip + limit;
     showFilteredProducts(toSkip, limit, productFilters.filters).then((data) => {
       if (data.error) {
-        setError(data.error);
+        console.log(data.error);
       } else {
         setResult([...result, ...data.data]);
         setSize(data.size);

@@ -9,7 +9,7 @@ import { showLoading, showError } from "../controllers/alerts";
 import welcome from "../styles/img/welcome.jpg";
 //animation
 import { motion } from "framer-motion";
-import { pageAnimation } from "../animation";
+import { pageAnimation, fadeSlow } from "../animation";
 
 function LogIn() {
   //states
@@ -108,7 +108,7 @@ function LogIn() {
         <small>Don't have an account?</small> <Link to="signup"> Sign Up</Link>
       </p>
       {redirectUser()}
-      <img src={welcome} alt="Ups.." />
+      <motion.img src={welcome} alt="Ups.." variants={fadeSlow} />
     </motion.div>
   );
 }

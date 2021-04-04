@@ -3,9 +3,13 @@ import delivery from "../styles/img/delivery.png";
 import ContactForm from "../components/ContactForm";
 //animation
 import { motion } from "framer-motion";
-import { pageAnimation } from "../animation";
+import { pageAnimation, scrollReveal } from "../animation";
+import { useScroll } from "../components/useScroll";
 
 function Contacts() {
+  //animation with scroll
+  const [element, controls] = useScroll();
+
   return (
     <motion.div
       className="contacts"
@@ -31,9 +35,15 @@ function Contacts() {
         </div>
         <img src={delivery} alt="Ups.." />
       </div>
-      <div className="contactUs">
+      <motion.div
+        className="contactUs"
+        variants={scrollReveal}
+        animate={controls}
+        initial="hidden"
+        ref={element}
+      >
         <ContactForm />
-      </div>
+      </motion.div>
     </motion.div>
   );
 }

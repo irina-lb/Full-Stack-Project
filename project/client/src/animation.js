@@ -21,7 +21,7 @@ export const pageAnimation = {
 };
 
 export const titleAnimation = {
-  hidden: { x: -500 },
+  hidden: { x: -550 },
   show: {
     x: 0,
     transition: { duration: 0.75, ease: "easeOut" },
@@ -36,8 +36,16 @@ export const fade = {
   },
 };
 
+export const fadeSlow = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { ease: "easeOut", duration: 1.4 },
+  },
+};
+
 export const photoAnimation = {
-  hidden: { scale: 1.5, opacity: 0 },
+  hidden: { scale: 1.3, opacity: 0 },
   show: {
     scale: 1,
     opacity: 1,
@@ -45,13 +53,6 @@ export const photoAnimation = {
       ease: "easeOut",
       duration: 0.75,
     },
-  },
-};
-export const lineAnimation = {
-  hidden: { width: "0%" },
-  show: {
-    width: "100%",
-    transition: { duration: 1 },
   },
 };
 

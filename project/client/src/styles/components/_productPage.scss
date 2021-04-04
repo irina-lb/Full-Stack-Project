@@ -49,6 +49,7 @@
     }
     .relatedProducts {
       @extend %base-grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       .related {
         width: 100%;
         .relatedProductImg {
@@ -89,6 +90,23 @@
         }
         .productImage {
           width: 100%;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .productPage {
+      h3 {
+        font-size: 1.5rem;
+        margin-top: 4rem;
+      }
+      .productPageInfo {
+        .productPageText {
+          width: 100%;
+        }
+        .productImage {
+          width: 100%;
+          height: 30vh;
         }
       }
     }

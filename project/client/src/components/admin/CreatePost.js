@@ -1,5 +1,5 @@
 //import hooks
-import { useState, useEffect } from "react";
+import { useState } from "react";
 //functions import
 import { isAuthenticated } from "../../controllers/auth";
 import { createPost } from "../../controllers/blog";

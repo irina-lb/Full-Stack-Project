@@ -1,5 +1,5 @@
 //import models
-const { Order, Cart } = require("../models/order");
+const { Order } = require("../models/order");
 
 //create new order
 exports.createOrder = (req, res) => {

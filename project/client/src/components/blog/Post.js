@@ -12,7 +12,7 @@ function Post({ post }) {
         <h3>{post.title}</h3>
         <h5>{post.subtitle}</h5>
         <p>
-          {post.text.substring(0, 100)}...
+          {post.text.substring(0, 90)}...
           <Link to={`/blog/${post._id}`}>
             <small>Read more</small>
           </Link>

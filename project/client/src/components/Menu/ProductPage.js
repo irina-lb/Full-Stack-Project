@@ -20,7 +20,6 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 function ProductPage({ pathId }) {
   //state
   const [product, setProduct] = useState({});
-  const [error, setError] = useState(false);
   const [relatedProduct, setRelatedProduct] = useState([]);
 
   //exit from the product page to menu
@@ -36,12 +35,12 @@ function ProductPage({ pathId }) {
   const loadProduct = (pathId) => {
     checkId(pathId).then((data) => {
       if (data.error) {
-        setError(data.error);
+        console.log(data.error);
       } else {
         setProduct(data);
         showRelatedProducts(data._id).then((data) => {
           if (data.error) {
-            setError(data.error);
+            console.log(data.error);
           } else {
             setRelatedProduct(data);
           }

@@ -14,9 +14,9 @@ import AdminDashboard from "../pages/AdminDashboard";
 import ShoppingCart from "../pages/ShoppingCart";
 import Blog from "../pages/Blog";
 import Footer from "../components/Footer";
-import { useLocation } from "react-router-dom";
 //import hooks
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 function Routes() {
   //scroll to top
@@ -24,6 +24,7 @@ function Routes() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
   return (
     <div className="Routes">
       <Switch>

@@ -10,13 +10,12 @@ import { Link } from "react-router-dom";
 function Popular() {
   //states
   const [bySell, setBySell] = useState([]);
-  const [error, setError] = useState(false);
 
   //show most sold products
   const productsBySell = () => {
     getProducts("sold", 6).then((data) => {
       if (data.error) {
-        setError(data.error);
+        console.log(data.error);
       } else {
         setBySell(data);
       }

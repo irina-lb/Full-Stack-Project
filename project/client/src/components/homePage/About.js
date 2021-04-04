@@ -5,8 +5,15 @@ import team from "../../styles/img/team.jpg";
 import Layout from "./Layout";
 //array import
 import { cards } from "../../util";
+//animation
+import { motion } from "framer-motion";
+import { photoAnimation } from "../../animation";
+import { useScroll } from "../useScroll";
 
 function About() {
+  //animation with scroll
+  const [element, controls] = useScroll();
+
   return (
     <div className="aboutSection">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -33,9 +40,15 @@ function About() {
           d="M0,64L80,85.3C160,107,320,149,480,138.7C640,128,800,64,960,58.7C1120,53,1280,107,1360,133.3L1440,160L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
         ></path>
       </svg>
-      <div className="infoSection">
+      <motion.div className="infoSection">
         <h2>How it's working?</h2>
-        <div className="cardsSection">
+        <motion.div
+          variants={photoAnimation}
+          animate={controls}
+          initial="hidden"
+          ref={element}
+          className="cardsSection"
+        >
           {cards.map((card) => {
             return (
               <div className="cardDescription" key={card.title}>
@@ -45,8 +58,8 @@ function About() {
               </div>
             );
           })}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
           fill="#f5df4d"

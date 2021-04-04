@@ -3,6 +3,7 @@
   width: 100%;
   background-color: $light-yellow;
   padding: 2rem 0;
+  overflow-x: hidden;
   h3 {
     @extend %base-header;
     color: $light-gray;

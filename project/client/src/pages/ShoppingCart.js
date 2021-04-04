@@ -9,7 +9,7 @@ import CartItem from "../components/user/CartItem";
 import Total from "../components/user/Total";
 import CheckOut from "./CheckOut";
 //import routes
-import { Link, useHistory, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function ShoppingCart() {
   //states

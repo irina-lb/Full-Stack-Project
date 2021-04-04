@@ -9,7 +9,7 @@ import { showError, showSuccess } from "../controllers/alerts";
 import { Link } from "react-router-dom";
 //animation
 import { motion } from "framer-motion";
-import { pageAnimation, fade, photoAnimation } from "../animation";
+import { pageAnimation, fadeSlow } from "../animation";
 
 function SignUp() {
   //states
@@ -54,7 +54,7 @@ function SignUp() {
       initial="hidden"
       animate="show"
     >
-      <img src={signup} alt="Ups.." />
+      <motion.img src={signup} alt="Ups.." variants={fadeSlow} />
       <div className="itemsContainer">
         <div className="formText">
           <h2>Create new account</h2>
