@@ -7,7 +7,7 @@ It contains both user and admin access and CRUD api for support from admin dashb
 
 ---
 
-*__To create the project, the folowing technologies were used:__
+*To create the project, the folowing technologies were used:
   *React JS
   *Sass
   *Framer Motion
