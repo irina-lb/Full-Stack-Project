@@ -6,14 +6,13 @@ This project is a e-commerce page with enabled payment system.
 It contains both user and admin access and CRUD api for support from admin dashboard.
 
 ---
-
-*To create the project, the folowing technologies were used:
-  *React JS
-  *Sass
-  *Framer Motion
-  *Node JS
-  *Express
-  *Mongo
+* __To create the project, the folowing technologies were used:__
+  * React JS
+  * Sass
+  * Framer Motion
+  * Node JS
+  * Express
+  * Mongo
 
 ---
 
