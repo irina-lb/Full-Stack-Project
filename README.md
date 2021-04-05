@@ -1,4 +1,23 @@
-# Getting Started with Create React App
+# Full Stack MERN Project "Cook as Chef"
+_Page which allows to purchase kits of all necessary ingredients and step by step recipe, for cooking at home as a real chef._
+![project](https://user-images.githubusercontent.com/73307960/113608031-45ef7780-964a-11eb-8890-d13e988a2c25.gif)
+
+This project is a e-commerce page with enabled payment system.
+It contains both user and admin access and CRUD api for support from admin dashboard.
+
+---
+
+### To create the project, the folowing technologies were used:
+  *React JS
+  *Sass
+  *Framer Motion
+  *Node JS
+  *Express
+  *Mongo
+
+---
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
