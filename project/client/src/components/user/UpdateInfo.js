@@ -20,7 +20,6 @@ function UpdateInfo({ match }) {
     lastName: "",
     phoneNumber: "",
     birthDate: "",
-    email: "",
     password: "",
     error: false,
     success: false,
@@ -39,7 +38,6 @@ function UpdateInfo({ match }) {
           ...values,
           firstName: data.firstName,
           lastName: data.lastName,
-          email: data.email,
           phoneNumber: data.phoneNumber,
           birthDate: data.birthDate,
         });
@@ -66,7 +64,6 @@ function UpdateInfo({ match }) {
             ...values,
             firstName: data.firstName,
             lastName: data.lastName,
-            email: data.email,
             phoneNumber: data.phoneNumber,
             birthDate: data.birthDate,
             success: true,
@@ -112,10 +109,6 @@ function UpdateInfo({ match }) {
             type="date"
             onChange={handleChange("birthDate")}
           />
-        </div>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input id="email" type="email" onChange={handleChange("email")} />
         </div>
         <div>
           <label htmlFor="password">Password:</label>
